@@ -1,0 +1,16 @@
+services:
+  jenkins:
+    container_name: jenkins_container
+    image: jenkins:2.60.3
+    restart: always
+    volumes:
+        - ./data:/var/jenkins_home
+    ports:
+        - "8080:8080" 
+        - "50000:50000"
+    networks:
+        - network-with-internet
+
+networks:
+  network-with-internet:
+    external: true
